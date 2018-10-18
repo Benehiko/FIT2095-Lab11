@@ -3,7 +3,7 @@ let path = require("path");
 let app = express();
 let server = require("http").Server(app);
 let io = require("socket.io")(server);
-let port = 8080;
+let port = 8082;
 const fs = require("fs");
 
 app.use("/", express.static(path.join(__dirname, "dist/FIT2095-Lab11")));
