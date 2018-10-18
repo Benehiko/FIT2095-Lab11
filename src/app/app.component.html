@@ -1,0 +1,31 @@
+<form>
+  <div class="form-group">
+    <label for="name">Your Name</label>
+    <input type="text" class="form-control" id="name" aria-describedby="name" placeholder="Enter your Name" name="name"
+           [(ngModel)]="name" required>
+    <small id="emailHelp" class="form-text text-muted">Required to send a message</small>
+  </div>
+  <div class="form-group">
+    <label for="message">Message</label>
+    <textarea type="text" class="form-control" id="message" placeholder="Message" rows="3" name="message"
+              [(ngModel)]="messageText" required></textarea>
+  </div>
+  <button class="btn-primary" type="submit" (click)="sendMessage()">Send</button>
+</form>
+<div class="container" *ngFor="let item of messages.slice().reverse() ">
+  <p>Author: {{item.author}}</p>
+  <p>{{item.msg}}</p>
+  <span class="time-right">{{item.timeStamp}}</span>
+</div>
+
+<div class="jumbotron text-center">
+  <button class="btn-dark" type="button" (click)="text2speech()">Convert last</button>
+  <div *ngIf="file.length > 0">
+    <audio controls>
+      <source src="/audio/{{file}}.mp3" type="audio/mp3">
+    </audio>
+  </div>
+  <p>FIT2095 Chat Application</p>
+</div>
+
+
